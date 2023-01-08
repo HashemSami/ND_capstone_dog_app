@@ -43,7 +43,7 @@ def load_data():
     test_files, test_targets = load_dataset("../../data/dogImages/test")
 
     # Obtain bottleneck features from another pre-trained CNN.
-    bottleneck_features = np.load("bottleneck_features/DogResnet50Data.npz")
+    bottleneck_features = np.load("DogResnet50Data.npz")
     train_resnet50 = bottleneck_features["train"]
     valid_resnet50 = bottleneck_features["valid"]
     test_resnet50 = bottleneck_features["test"]
@@ -188,7 +188,7 @@ def save_best_model(resnet50_model):
 
 
 def main():
-    if not path.exists("bottleneck_features/DogResnet50Data.npz"):
+    if not path.exists("DogResnet50Data.npz"):
         print("Downloading bottleneck features...")
         download_features()
 
