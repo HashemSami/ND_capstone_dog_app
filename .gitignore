@@ -1,6 +1,7 @@
 .DS_Store
 !data/
-data/*
+data/dogImages
+data/lfw
 dogImages/
 lfw/
 .ipynb_checkpoints/
