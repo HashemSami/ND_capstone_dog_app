@@ -1,6 +1,6 @@
 ## Project Overview:
 
-This project is for the Udacity's Data Scientist Nanodegree, to build Convolutional Neural Networks (CNNs). Given an image of a dog, the algorithm will identify an estimate of the canine’s breed. If supplied an image of a human, the code will identify the resembling dog breed.
+This project is for the Udacity's Data Scientist Nanodegree, where students learn to build Convolutional Neural Networks (CNNs). Given an image of a dog, the algorithm will identify an estimate of the canine’s breed. If supplied an image of a human, the code will identify the resembling dog breed.
 
 ## Motivation:
 
@@ -16,8 +16,8 @@ The project is divided into two sections, you can run each section separately by
 
 ### Part1:
 
-Testing code and walkthrough to the model building process and the pipeline creation.
-All the code needed found inside the `dog-project_model_building` folder.
+- Testing code and walkthrough to the model building process and the pipeline creation.
+- All the code needed found inside the `dog-project_model_building` folder.
 
 ### Part1 Instructions:
 
@@ -25,7 +25,7 @@ All the code needed found inside the `dog-project_model_building` folder.
 
 ```
 git clone https://github.com/udacity/dog-project.git
-cd dog-project
+cd ND_capstone_dog_app
 ```
 
 2. Install the required libraries by executing this command in the project's root directory:
@@ -46,17 +46,17 @@ pip install -r requirements.txt
 
 ### Part2:
 
-This part contains a pipeline script that will train a CNN model based on the provided images datasets and saves the best trained model.
-It also contains a web application code that will run on a Flask server, that utilizes the trained model to make predictions on the app user’s input images.
-All the code needed found inside the `dog_project_web_app` folder.
+- This part contains a pipeline script that will train a CNN model based on the provided images dataset and saves the best trained model.
+- It also contains a web application code that will run on a Flask server, that utilizes the trained model to make predictions on the app user’s input images.
+- All the code needed found inside the `dog_project_web_app` folder.
 
-### Part1 Instructions:
+### Part2 Instructions:
 
 1. Clone the repository and navigate to the downloaded folder.
 
 ```
 git clone https://github.com/udacity/dog-project.git
-cd dog-project
+cd ND_capstone_dog_app
 ```
 
 2. Install the required libraries by executing this command in the project's root directory:
@@ -70,10 +70,16 @@ pip install -r requirements.txt
 3. Download the [human dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip). Unzip the folder and place it in the repo, at location `path/to/ND_capstone_dog_app/data/lfw`. If you are using a Windows machine, you are encouraged to use [7zip](http://www.7-zip.org/) to extract the folder.
 
 4. Run the following commands in the project's root directory to set up your trained model.
-   `python dog_project_web_app/models/train_classifier.py`
+
+```
+python dog_project_web_app/models/train_classifier.py
+```
 
 5. Run the following command in the project's root directory to run your web app.
-   `python python dog_project_web_app/app/run.py`
+
+```
+python python dog_project_web_app/app/run.py
+```
 
 6. Go to http://0.0.0.0:3001/
 
