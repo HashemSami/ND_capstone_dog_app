@@ -38,23 +38,25 @@ def load_data():
         return dog_files, dog_targets
 
     # load train, test, and validation datasets
-    train_files, train_targets = load_dataset("../../data/dogImages/train")
-    valid_files, valid_targets = load_dataset("../../data/dogImages/valid")
-    test_files, test_targets = load_dataset("../../data/dogImages/test")
+    train_files, train_targets = load_dataset("./data/dogImages/train")
+    valid_files, valid_targets = load_dataset("./data/dogImages/valid")
+    test_files, test_targets = load_dataset("./data/dogImages/test")
 
     # Obtain bottleneck features from another pre-trained CNN.
-    bottleneck_features = np.load("DogResnet50Data.npz")
+    bottleneck_features = np.load(
+        "./dog_project_web_app/models/DogResnet50Data.npz"
+    )
     train_resnet50 = bottleneck_features["train"]
     valid_resnet50 = bottleneck_features["valid"]
     test_resnet50 = bottleneck_features["test"]
 
     # load list of dog names
     dog_names = [
-        item[31:-1] for item in sorted(glob("../../data/dogImages/train/*/"))
+        item[27:-1] for item in sorted(glob("./data/dogImages/train/*/"))
     ]
 
     # save dog names into a file for the app
-    with open("../../data/dogNames.json", "w") as fp:
+    with open("./data/dogNames.json", "w") as fp:
         json.dump(dog_names, fp)
 
     # print statistics about the dataset
@@ -122,7 +124,9 @@ def train_model(
     model in "resnet50.weights.best.hdf5" file
     """
     checkpointer = ModelCheckpoint(
-        filepath="resnet50.weights.best.hdf5", verbose=1, save_best_only=True
+        filepath="./dog_project_web_app/models/resnet50.weights.best.hdf5",
+        verbose=1,
+        save_best_only=True,
     )
 
     reduce_lr = ReduceLROnPlateau(
@@ -161,7 +165,9 @@ def evaluate_model(resnet50_model, test_resnet50, test_targets):
     and prints the accurace results to the console
     """
     # Load the model weights with the best validation loss.
-    resnet50_model.load_weights("resnet50.weights.best.hdf5")
+    resnet50_model.load_weights(
+        "./dog_project_web_app/models/resnet50.weights.best.hdf5"
+    )
     # get index of predicted dog breed for each image in test set
     resnet50_predictions = [
         np.argmax(resnet50_model.predict(np.expand_dims(feature, axis=0)))
@@ -181,14 +187,18 @@ def evaluate_model(resnet50_model, test_resnet50, test_targets):
 
 
 def save_best_model(resnet50_model):
-    resnet50_model.load_weights("resnet50.weights.best.hdf5")
+    resnet50_model.load_weights(
+        "./dog_project_web_app/models/resnet50.weights.best.hdf5"
+    )
     save_model(
-        resnet50_model, "resnet50.model.best.h5", include_optimizer=False
+        resnet50_model,
+        "./dog_project_web_app/models/resnet50.model.best.h5",
+        include_optimizer=False,
     )
 
 
 def main():
-    if not path.exists("DogResnet50Data.npz"):
+    if not path.exists("./dog_project_web_app/models/DogResnet50Data.npz"):
         print("Downloading bottleneck features...")
         download_features()
 

@@ -42,7 +42,9 @@ pip install -r requirements.txt
 
 5. Download the [Resnet50 bottleneck features](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/DogResnet50Data.npz) for the dog dataset. Place it in the repo, at location `path/to/ND_capstone_dog_app/dog-project_model_building/bottleneck_features`.
 
-6. (Optional) **If you plan to install TensorFlow with GPU support on your local machine**, follow [the guide](https://www.tensorflow.org/install/) to install the necessary NVIDIA software on your system. If you are using an EC2 GPU instance, you can skip this step.
+6. Navigate to `dog-project_model_building/dog_app.ipynb` and start executing the code cells.
+
+7. (Optional) **If you plan to install TensorFlow with GPU support on your local machine**, follow [the guide](https://www.tensorflow.org/install/) to install the necessary NVIDIA software on your system. If you are using an EC2 GPU instance, you can skip this step.
 
 ### Part2:
 
@@ -69,7 +71,7 @@ pip install -r requirements.txt
 
 3. Download the [human dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip). Unzip the folder and place it in the repo, at location `path/to/ND_capstone_dog_app/data/lfw`. If you are using a Windows machine, you are encouraged to use [7zip](http://www.7-zip.org/) to extract the folder.
 
-4. Run the following commands in the project's root directory to set up your trained model.
+4. Run the following command in the project's root directory to set up your trained model.
 
 ```
 python dog_project_web_app/models/train_classifier.py
@@ -78,7 +80,7 @@ python dog_project_web_app/models/train_classifier.py
 5. Run the following command in the project's root directory to run your web app.
 
 ```
-python python dog_project_web_app/app/run.py
+python dog_project_web_app/app/run.py
 ```
 
 6. Go to http://0.0.0.0:3001/

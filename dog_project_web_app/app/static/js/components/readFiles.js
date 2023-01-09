@@ -10,7 +10,7 @@ const readFilesData = (files, store, updateStore) => {
     reader.readAsDataURL(file);
 
     reader.onprogress = e => {
-      console.log(e.currentTarget);
+      // console.log(e.currentTarget);
     };
 
     reader.onloadend = async e => {
@@ -24,7 +24,7 @@ const readFilesData = (files, store, updateStore) => {
     };
 
     reader.onerror = () => {
-      console.log(reader.error);
+      // console.log(reader.error);
     };
   });
 

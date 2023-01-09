@@ -13,7 +13,6 @@ const sendFile = async image => {
     redirect: "follow",
   };
 
-  console.log(image);
   const response = await fetch(
     "http://localhost:3001/processImage",
     requestOptions
@@ -21,7 +20,6 @@ const sendFile = async image => {
 
   const data = await response.json();
 
-  console.log(data);
   return data;
 };
 

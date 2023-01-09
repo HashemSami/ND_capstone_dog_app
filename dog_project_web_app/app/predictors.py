@@ -14,7 +14,9 @@ from tensorflow.keras.preprocessing import image
 # define ResNet50 model
 ResNet50_model = ResNet50(weights="imagenet")
 
-resnet50_trained_model = load_model("../models/resnet50.model.best.h5")
+resnet50_trained_model = load_model(
+    "./dog_project_web_app/models/resnet50.model.best.h5"
+)
 
 bottleneck_feature = ResNet50(
     weights="imagenet", include_top=False, pooling="avg"
@@ -30,7 +32,7 @@ def human_predictor(img_path):
     is_human (bool) - is humad detected
     """
     face_cascade = cv2.CascadeClassifier(
-        "haarcascades/haarcascade_frontalface_alt.xml"
+        "./dog_project_web_app/app/haarcascades/haarcascade_frontalface_alt.xml"
     )
     img = cv2.imread(img_path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -68,7 +70,7 @@ def dog_predictor(img_path):
 
 def get_dog_names():
     # for reading also binary mode is important
-    with open("../../data/dogNames.json", "rb") as fp:
+    with open("./data/dogNames.json", "rb") as fp:
         n_list = json.load(fp)
         return n_list
 

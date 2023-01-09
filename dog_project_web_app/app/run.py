@@ -3,6 +3,9 @@ from flask import render_template, request, jsonify
 from predictors import human_predictor, dog_predictor, dog_breed_predictor
 from werkzeug.utils import secure_filename
 
+from os import path
+
+
 app = Flask(__name__)
 
 
@@ -24,7 +27,9 @@ def processImage():
         if "image" in request.files:
 
             file = request.files["image"]
-            filename = secure_filename(file.filename)
+            filename = path.join(
+                "./dog_project_web_app/app", secure_filename(file.filename)
+            )
             file.save(filename)
 
             is_human = human_predictor(filename)

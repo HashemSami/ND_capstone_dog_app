@@ -16,7 +16,6 @@ const root = document.getElementById("root");
 
 export const updateStore = newState => {
   const newStore = Object.assign(store, newState);
-  console.log(newStore);
   render(root, newStore);
 };
 
@@ -37,7 +36,6 @@ document.addEventListener(
 
 const addEventsToFileReader = files => {
   const file = files[0];
-  // console.log(files);
   readFilesData(files, store, updateStore);
 };
 
